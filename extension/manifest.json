@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Optimizer (Local)",
+  "version": "0.1.0",
+  "description": "Optimizes prompts by calling a local API on your Mac.",
+  "host_permissions": [
+    "http://localhost:8000/*"
+  ],
+"background": {
+  "service_worker": "background.js"
+},
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
